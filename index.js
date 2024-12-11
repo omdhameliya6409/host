@@ -2,8 +2,8 @@ const express = require('express');
 const cors = require('cors'); // Import CORS
 
 const app = express();
-const port = 3000;
 
+const port = process.env.PORT || 3000;
 // Enable CORS for all origins
 app.use(cors());
 app.use(cors({
@@ -16,7 +16,9 @@ app.use(cors({
 app.get('/', (req, res) => {
     res.send('Hello World');
 });
-
+app.get('/hello', (req, res) => {
+    res.send('Hello2 World');
+});
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
